@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Report").click(function () {
+            $.post("@Url.Action("GenerateReport")").done(function (result) {
+                if (result) {
+                    window.location = '@Url.Action("GetReport")';
+                }
+            });
+        });
+    });
+</script>
+
+<h2>Index</h2>
+
+
+<input type="submit" id="Report" value="Generate Report" />

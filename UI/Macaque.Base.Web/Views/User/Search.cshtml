@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Search";
+    AjaxOptions option = new AjaxOptions
+    {
+        UpdateTargetId = "targetdiv",
+        LoadingElementId = "wait",
+        LoadingElementDuration = 1000
+    };
+}
+
+<h2>Search</h2>
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+@*First Approach  Script*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Partial").click(function () {
+            var id = $("#ID").val();
+            var usersDiv = $("#usersDiv");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("UserListByPartialView"))",
+                data: { "id": id },
+                success: function (data) {
+                    usersDiv.html('');
+                    usersDiv.html(data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve books.');
+                }
+            });
+        });
+    });
+
+</script>
+
+@* second approach script *@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Json").click(function () {
+            var id = $("#ID").val();
+            var usersDiv = $("#usersDiv");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("UserListByJson"))",
+                data: { "id": id },
+                success: function (data) {
+                    var result = "";
+                    usersDiv.html('');
+                    $.each(data, function (id, user) {
+                        result += '<b>ID : </b>' + user.ID + '<br/>' +
+                                    '<b> Name :</b>' + user.UserName + '<br/>' +
+                                     '<b> Description :</b>' + user.Password + '<hr/>';
+
+                    });
+                    usersDiv.html(result);
+                },
+                error: function (xhr, AJAXOptions, thrownError) {
+                    alert('Failed to retrieve users.');
+                }
+            });
+        });
+    });
+</script>
+
+<div id="wait" style="display: none">
+    Loading...
+</div>
+@using (Ajax.BeginForm(option))
+{
+    <div id="targetdiv">
+        Test
+    </div>
+    @Html.TextBox("ID")
+    <div>
+        <input type="submit" value="Search" />
+    </div>     
+}
+<div>
+    <input type="submit" id="Partial" value="Partial" />
+    <input type="submit" id="Json" value="Json" />
+</div>
+<div id="usersDiv">
+</div>
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+            </p>
+        </div>
+    </section>
+}

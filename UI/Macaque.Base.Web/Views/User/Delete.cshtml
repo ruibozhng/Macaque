@@ -1,0 +1,77 @@
+﻿@model Macaque.Base.Web.Models.UserModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>UserModel</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.UserID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserID)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Gender)
+    </div>
+    <div class="display-field">
+        @{if (Model.Gender == "M")
+          {  <label for="gender">Male</label> }
+          else if (Model.Gender == "F")
+          {  <label for="gender">Female</label> }  }
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mobile)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Grade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Grade)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.AllRoles)
+    </div>
+    <ul>
+        @foreach (var item in Model.AllRoles)
+        {
+            <li>
+                @{if (Model.SelectedRoles.Contains(item.RoleCode))
+                  {  <label for="@item.RoleCode">@item.RoleDesc</label> } }
+
+            </li>                   
+        }
+    </ul>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

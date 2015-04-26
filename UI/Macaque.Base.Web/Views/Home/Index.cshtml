@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+    AjaxOptions option = new AjaxOptions
+    {
+        UpdateTargetId = "targetdiv",
+        LoadingElementId = "wait",
+        LoadingElementDuration = 1000
+    };
+}
+
+<div id="wait" style="display: none">
+    Loading...
+</div>
+@using (Ajax.BeginForm(option))
+{
+    <div id="targetdiv">
+        Test
+    </div>
+    @Html.TextBox("name")
+    <div>
+        <input type="submit" value="Search" />
+    </div>     
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+            </p>
+        </div>
+    </section>
+}

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BFACA2FD-F887-4EDB-8886-C54C1DCAC3BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Macaque.Base.BusinessService</RootNamespace>
+    <AssemblyName>Macaque.Base.BusinessService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AccountManagementService.cs" />
+    <Compile Include="Admin\UserManagementService.cs" />
+    <Compile Include="Code\CodeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\Macaque.Common.BusinessComponent\Macaque.Common.BusinessComponent.csproj">
+      <Project>{8219ec44-9deb-4e6c-b1bf-ad3d0897b93e}</Project>
+      <Name>Macaque.Common.BusinessComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Macaque.Base.BusinessComponent\Macaque.Base.BusinessComponent.csproj">
+      <Project>{a9d57b03-9ff8-4bd5-b503-22ab17cfe86a}</Project>
+      <Name>Macaque.Base.BusinessComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Macaque.Base.BusinessContract\Macaque.Base.BusinessContract.csproj">
+      <Project>{6480ad31-d041-4269-b338-214d84be5432}</Project>
+      <Name>Macaque.Base.BusinessContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Macaque.Base.BusinessEntity\Macaque.Base.BusinessEntity.csproj">
+      <Project>{c44b8e79-8571-4382-a1c3-3fb9d8e17d52}</Project>
+      <Name>Macaque.Base.BusinessEntity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

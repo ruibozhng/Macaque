@@ -1,0 +1,11 @@
+X-Sender: test@abc.com
+X-Receiver: receive@abc.com
+MIME-Version: 1.0
+From: test@abc.com
+To: receive@abc.com
+Date: 30 Jan 2015 15:23:44 +0800
+Subject: Password Reset
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+123456

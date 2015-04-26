@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "APISearch";
+}
+
+<script src="~/Scripts/User/apisearch.js"></script>
+
+<h2>API CRUD</h2>
+
+<div id="buttonContainer">
+    <button id="refresh">Refresh</button>
+    <button id="add">Add</button>
+    <button id="edit">Edit</button>
+    <button id="delete">Delete</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th class="selectCol"></th>
+            <th class="nameCol">User Id</th>
+            <th class="locationCol">Name</th>
+            <th class="locationCol">Gender</th>
+            <th class="locationCol">Mobile</th>
+            <th class="locationCol">Email</th>
+            <th class="locationCol">Grade</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <tr>
+            <td colspan="3">The data is loading</td>
+        </tr>
+    </tbody>
+</table>
+ 
+<div id="editDisplay" class="display"> 
+    <h4>Add/Edit User</h4> 
+    <form id="editForm"> 
+        <input id="editID" type="hidden" name="ID"/> 
+        <p><label>User ID:</label><input id="editUserId" name="UserId" /></p> 
+        <p><label>Name:</label><input id="editUserName" name="UserName" /></p> 
+        <p><label>Password:</label><input id="editPassword" name="Password" /></p> 
+        <p><label>Gender:</label><input id="editGender" name="Gender" /></p> 
+        <p><label>Mobile:</label><input id="editMobile" name="Mobile" /></p> 
+        <p><label>Email:</label><input id="editEmail" name="Email" /></p> 
+        <p><label>Grade:</label><input id="editGrade" name="Grade" /></p> 
+    </form> 
+    <button id="submitAdd" type="submit">Save</button> 
+    <button id="submitEdit" type="submit">Save</button> 
+</div>
+
